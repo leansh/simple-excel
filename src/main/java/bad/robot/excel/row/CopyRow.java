@@ -23,6 +23,7 @@ import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.util.CellRangeAddress;
 
 import static bad.robot.excel.style.ClonedStyleFactory.newStyleBasedOn;
+import static org.apache.poi.ss.usermodel.CellType.*;
 
 public class CopyRow {
 
@@ -79,22 +80,22 @@ public class CopyRow {
 
     private static void setCellDataValue(Cell oldCell, Cell newCell) {
         switch (oldCell.getCellType()) {
-            case Cell.CELL_TYPE_BLANK:
+            case BLANK:
                 newCell.setCellValue(oldCell.getStringCellValue());
                 break;
-            case Cell.CELL_TYPE_BOOLEAN:
+            case BOOLEAN:
                 newCell.setCellValue(oldCell.getBooleanCellValue());
                 break;
-            case Cell.CELL_TYPE_ERROR:
+            case ERROR:
                 newCell.setCellErrorValue(oldCell.getErrorCellValue());
                 break;
-            case Cell.CELL_TYPE_FORMULA:
+            case FORMULA:
                 newCell.setCellFormula(oldCell.getCellFormula());
                 break;
-            case Cell.CELL_TYPE_NUMERIC:
+            case NUMERIC:
                 newCell.setCellValue(oldCell.getNumericCellValue());
                 break;
-            case Cell.CELL_TYPE_STRING:
+            case STRING:
                 newCell.setCellValue(oldCell.getRichStringCellValue());
                 break;
         }
